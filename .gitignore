@@ -1,0 +1,22 @@
+# Cache objects
+packer_cache/
+
+# Crash log
+crash.log
+
+# For built boxes
+*.box
+
+# Terraform Artifacts
+.terraform/
+.terraform.tfstate*
+terraform.tfstate*
+
+# Vim artifacts
+*.swp
+*.swo
+
+# Secrets directory
+# TODO: Use a secrets service to remove this workaround
+secrets/
+secrets/*
