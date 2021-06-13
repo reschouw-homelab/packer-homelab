@@ -92,6 +92,18 @@ build {
     ]
   }
 
+  # Set up Ansible
+  provisioner "shell" {
+    execute_command = "sudo sh -c '{{ .Vars }} {{ .Path }}'"
+    inline = [
+      "git clone https://github.com/reschouw/ansible-homelab.git /root/ansible-homelab",
+      "cd /root/ansible-homelab",
+      "make env",
+      ". env/bin/activate",
+      "make deps",
+    ]
+  }
+  
   # Update system packages
   provisioner "shell" {
     execute_command = "sudo sh -c '{{ .Vars }} {{ .Path }}'"
