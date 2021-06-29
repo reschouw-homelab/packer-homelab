@@ -65,6 +65,16 @@ build {
     ]
   }
   
+
+  # Install AWS CLI
+  provisioner "shell" {
+    execute_command = "sudo sh -c '{{ .Vars }} {{ .Path }}'"
+    inline = [
+      "apt-get update",
+      "apt-get install -y awscli",
+    ]
+  }
+
   # Update system packages
   provisioner "shell" {
     execute_command = "sudo sh -c '{{ .Vars }} {{ .Path }}'"
